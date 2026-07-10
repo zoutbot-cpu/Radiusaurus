@@ -1,0 +1,15 @@
+[Unit]
+Description=Radiusaurus API
+After=network.target mariadb.service
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/radiusaurus
+EnvironmentFile=/opt/radiusaurus/.env
+ExecStart=/opt/radiusaurus/venv/bin/python -m uvicorn main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
