@@ -3,7 +3,7 @@ set -euo pipefail
 
 APP_DIR="/opt/radiusaurus"
 WEB_DIR="/var/www/radiusaurus"
-DEFAULT_RELEASE_URL="https://github.com/YOUR_GITHUB_USER/radiusaurus/releases/latest/download/radiusaurus-installer.tar.gz"
+DEFAULT_RELEASE_URL="https://github.com/zoutbot-cpu/radiusaurus/releases/latest/download/radiusaurus-installer.tar.gz"
 TMP_DIR=""
 
 DB_HOST="localhost"
