@@ -23,7 +23,6 @@
 - Advanced FreeRADIUS config editor
 - Config test and reload workflow
 - Status dashboard for FreeRADIUS, database, recent authentications, and failures
-- GitHub Pages landing page
 - Interactive Ubuntu quick installer
 
 ## Repository Structure
@@ -118,8 +117,6 @@ RADIUSAURUS_ADMIN_PASS=CHANGE_ME
 RADIUSAURUS_CERT_BASE=/opt/radiusaurus/certs
 ```
 
-Do not commit real production secrets.
-
 ## Customer Settings
 
 Customer-specific editable settings are stored in:
@@ -198,7 +195,3 @@ Before production use:
 - Restrict SSH access
 - Review sudo permissions used for FreeRADIUS testing/reload
 - Keep Ubuntu, FreeRADIUS, MariaDB, and Python packages updated
-
-## License
-
-Add your preferred license before publishing publicly.
