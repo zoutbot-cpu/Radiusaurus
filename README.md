@@ -1,11 +1,9 @@
 # Radiusaurus
 
-**Radiusaurus** is a web-based FreeRADIUS management platform designed to make RADIUS administration easier. It provides a browser UI for managing users, MAC authentication, groups, VLAN policies, RADIUS clients, certificates, FreeRADIUS configuration generation, config testing, service reloads, and operational status.
-
-> RADIUS management made easy.
+**Radiusaurus** is a web-based FreeRADIUS management platform designed to make RADIUS administration easier. 
+<img src="docs/assets/radiusaurus-logo.png" alt="radiusaurus logo" width= "70%">
 
 ## Features
-
 - Web UI for managing RADIUS users
 - MAC authentication device management
 - RADIUS client management
