@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radiusaurus - RADIUS management made easy</title>
+  <meta name="description" content="Radiusaurus is a lightweight web management layer for FreeRADIUS, certificates, RADIUS clients, users, MAC authentication, VLANs, and operational status.">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Radiusaurus home">
+        <img src="/assets/radiusaurus-logo.png" alt="Radiusaurus logo">
+        <span>Radiusaurus</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#download">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">RADIUS management made easy</div>
+          <h1>Manage FreeRADIUS without living in config files.</h1>
+          <p>Radiusaurus provides a clean web UI for RADIUS clients, users, MAC authentication, VLAN policy, certificates, generated FreeRADIUS configs, and service health.</p>
+          <div class="cta">
+            <a class="btn primary" href="#install">Quick install</a>
+            <a class="btn secondary" href="#features">See features</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="/assets/radiusaurus-logo.png" alt="Radiusaurus dinosaur Wi-Fi logo">
+          <div class="badges">
+            <div class="badge">FreeRADIUS</div>
+            <div class="badge">Ubuntu LTS</div>
+            <div class="badge">MariaDB</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">What it manages</h2>
+        <p class="section-subtitle">Radiusaurus turns the operational pieces of a FreeRADIUS deployment into a simple management workflow.</p>
+        <div class="grid">
+          <article class="card">
+            <h3>Identity and access</h3>
+            <p>Create and manage RADIUS users, MAC-auth devices, groups, VLAN assignments, and client secrets.</p>
+          </article>
+          <article class="card">
+            <h3>Certificates</h3>
+            <p>Generate, export, download, revoke, and inspect client certificates from the web UI.</p>
+          </article>
+          <article class="card">
+            <h3>Generated configs</h3>
+            <p>Generate clients.conf, EAP, SQL, queries.conf, default site, inner-tunnel, and request logging configs from templates.</p>
+          </article>
+          <article class="card">
+            <h3>Health dashboard</h3>
+            <p>Check FreeRADIUS status, config validation, database connectivity, and recent authentication results.</p>
+          </article>
+          <article class="card">
+            <h3>Advanced editor</h3>
+            <p>Use the built-in raw config editor for whitelisted FreeRADIUS files when you need emergency manual edits.</p>
+          </article>
+          <article class="card">
+            <h3>Portable customer setup</h3>
+            <p>Keep customer-specific values in settings.json and sensitive credentials in .env for cleaner deployments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="container">
+        <h2 class="section-title">Quick install</h2>
+        <p class="section-subtitle">Use the installer on a clean Ubuntu LTS server. Replace the repository URL with your actual GitHub repository before publishing.</p>
+        <div class="install">
+          <pre><code>curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USER/radiusaurus/main/scripts/quick-install.sh -o quick-install.sh
+sudo bash quick-install.sh</code></pre>
+          <p class="section-subtitle">The installer prompts for the database user/password, Radiusaurus admin account, public URL, certificate details, and downloads the latest release archive.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="container">
+        <h2 class="section-title">Deployment workflow</h2>
+        <div class="steps">
+          <div class="step"><strong>Install Radiusaurus</strong><br>Run the quick installer on a clean Ubuntu LTS server.</div>
+          <div class="step"><strong>Review settings</strong><br>Open Settings and verify public URL, RADIUS IP/DNS, certificate settings, SQL settings, and FreeRADIUS paths.</div>
+          <div class="step"><strong>Generate configs</strong><br>Use Settings to generate all managed FreeRADIUS configuration files from templates.</div>
+          <div class="step"><strong>Test before reload</strong><br>Run the built-in FreeRADIUS config test. Radiusaurus can show stdout/stderr directly in the UI.</div>
+          <div class="step"><strong>Reload safely</strong><br>Reload FreeRADIUS only after validation passes.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="container">
+        <h2 class="section-title">Repository layout</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>GitHub Pages</h3>
+            <ul>
+              <li><code>docs/index.html</code></li>
+              <li><code>docs/assets/styles.css</code></li>
+              <li><code>docs/assets/*favicon*</code></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Installer</h3>
+            <ul>
+              <li><code>scripts/quick-install.sh</code></li>
+              <li><code>scripts/build-release.sh</code></li>
+              <li><code>templates/*.template</code></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Release artifact</h3>
+            <ul>
+              <li><code>radiusaurus-installer.tar.gz</code></li>
+              <li>Backend, frontend, schema, templates</li>
+              <li>Published in GitHub Releases</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Radiusaurus - RADIUS management made easy.</div>
+  </footer>
+</body>
+</html>
