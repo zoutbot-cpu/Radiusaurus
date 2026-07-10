@@ -1,7 +1,19 @@
 # Radiusaurus
 
 **Radiusaurus** is a web-based FreeRADIUS management platform designed to make RADIUS administration easier. 
-<img src="docs/assets/radiusaurus-logo.png" alt="radiusaurus logo" width= "70%">
+<img src="docs/assets/radiusaurus-logo.png" alt="radiusaurus logo" width= "60%">
+
+- **Python** - FastAPI backend
+- **MariaDB** - , nginx, Freeradus, HTML/CSS/JS
+- **Python** — backend/API
+- **FastAPI** — API framework
+- **Uvicorn** — Python ASGI server
+- **HTML, CSS, JavaScript** — frontend
+- **MariaDB / MySQL** — database
+- **SQLAlchemy + PyMySQL** — database access
+- **nginx** — reverse proxy and frontend web server
+- **FreeRADIUS** — RADIUS server
+- **Bash** — installer scripts
 
 ## Features
 - Web UI for managing RADIUS users
