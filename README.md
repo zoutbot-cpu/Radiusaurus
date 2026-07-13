@@ -11,6 +11,8 @@ Manage users, devices, certificates, and RADIUS clients through a browser instea
 [![Latest release](https://img.shields.io/github/v/release/zoutbot-cpu/Radiusaurus)](https://github.com/zoutbot-cpu/Radiusaurus/releases/latest)
 ![Platform](https://img.shields.io/badge/platform-Ubuntu%20LTS-E95420?logo=ubuntu&logoColor=white)
 
+Tested on: ![22.04](https://img.shields.io/badge/Ubuntu_LST-22.04-orange) ![24.04](https://img.shields.io/badge/Ubuntu_LTS-24.04-orange) ![26.04](https://img.shields.io/badge/Ubuntu_LTS-26.04-orange)
+
 [Website](https://zoutbot-cpu.github.io/Radiusaurus/) · [Quick Install](#quick-install-on-ubuntu-lts) · [Repository Structure](#repository-structure)
 
 </div>
