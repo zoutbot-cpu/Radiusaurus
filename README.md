@@ -1,10 +1,11 @@
 <div align="center">
 
-<img src="docs/assets/radiusaurus-logo.png" alt="Radiusaurus logo" width="140">
+<img src="docs/assets/radiusaurus-logo.png" alt="Radiusaurus logo" width="240">
 
 # Radiusaurus
 
 **A web-based management platform for FreeRADIUS.**
+
 Manage users, devices, certificates, and RADIUS clients through a browser instead of hand-editing config files.
 
 [![License: GPL v3](https://img.shields.io/github/license/zoutbot-cpu/Radiusaurus)](LICENSE)
