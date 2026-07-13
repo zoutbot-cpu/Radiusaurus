@@ -25,6 +25,7 @@ CERT_ORG="Radiusaurus"
 CERT_CA_PASS=""
 CERT_SERVER_PASS=""
 RELEASE_URL=""
+HTTP_PORT="80"
 
 cleanup() {
   if [ -n "${TMP_DIR:-}" ] && [ -d "$TMP_DIR" ]; then
@@ -75,6 +76,15 @@ random_secret() {
   openssl rand -hex 32
 }
 
+primary_ip() {
+  local ip
+  ip="$(ip route get 1.1.1.1 2>/dev/null | grep -oP 'src \K\S+')"
+  if [ -z "$ip" ]; then
+    ip="$(hostname -I | awk '{print $1}')"
+  fi
+  echo "$ip"
+}
+
 install_packages() {
   echo "[1/14] Installing OS packages..."
   apt-get update
@@ -98,11 +108,18 @@ prompt_values() {
   echo "Radiusaurus first-time configuration"
   echo "------------------------------------"
   ask RELEASE_URL "Release archive URL" "$DEFAULT_RELEASE_URL"
-  ask PUBLIC_URL "Public URL" "http://$(hostname -I | awk '{print $1}')"
+  ask HTTP_PORT "HTTP port for the web UI" "80"
+  local detected_ip
+  detected_ip="$(primary_ip)"
+  if [ "$HTTP_PORT" = "80" ]; then
+    ask PUBLIC_URL "Public URL" "http://$detected_ip"
+  else
+    ask PUBLIC_URL "Public URL" "http://$detected_ip:$HTTP_PORT"
+  fi
   ask SERVER_NAME "Nginx server_name" "_"
   ask COMPANY_NAME "Company name" "Radiusaurus"
   ask SUPPORT_EMAIL "Support email" "support@example.local"
-  ask RADIUS_IP "RADIUS server IP" "$(hostname -I | awk '{print $1}')"
+  ask RADIUS_IP "RADIUS server IP" "$detected_ip"
   ask RADIUS_DNS "RADIUS DNS name" "$(hostname -f 2>/dev/null || hostname)"
 
   ask DB_HOST "Database host" "localhost"
@@ -286,7 +303,7 @@ setup_nginx() {
   echo "[9/14] Installing nginx config..."
   cat > /etc/nginx/sites-available/radiusaurus <<EOF_NGINX
 server {
-    listen 80;
+    listen $HTTP_PORT;
     server_name $SERVER_NAME;
 
     root $WEB_DIR;

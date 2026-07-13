@@ -1,5 +1,5 @@
 server {
-    listen 80;
+    listen __HTTP_PORT__;
     server_name __SERVER_NAME__;
 
     root /var/www/radiusaurus;

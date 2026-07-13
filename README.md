@@ -57,6 +57,7 @@ sudo ./quick-install.sh
 
 The installer asks for:
 
+- HTTP port for the web UI (defaults to 80)
 - Database name, user, and password
 - Radiusaurus admin username and password
 - Public URL or hostname

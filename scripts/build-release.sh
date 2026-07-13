@@ -19,7 +19,7 @@ cp "$REPO_ROOT/installer/schema.sql" "$BUILD_DIR/installer/schema.sql"
 
 # nginx/systemd are rendered from the single canonical templates/ files so they
 # can never drift from what scripts/quick-install.sh's own fallback generates.
-sed 's/__SERVER_NAME__/_/' "$REPO_ROOT/templates/nginx-radiusaurus.conf.template" > "$BUILD_DIR/installer/nginx-radiusaurus.conf"
+sed -e 's/__SERVER_NAME__/_/' -e 's/__HTTP_PORT__/80/' "$REPO_ROOT/templates/nginx-radiusaurus.conf.template" > "$BUILD_DIR/installer/nginx-radiusaurus.conf"
 cp "$REPO_ROOT/templates/radiusaurus.service.template" "$BUILD_DIR/installer/radiusaurus.service"
 
 # Frontend
