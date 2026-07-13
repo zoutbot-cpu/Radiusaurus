@@ -1,0 +1,34 @@
+<!-- Page template: logs -->
+<section class="page active" id="pageLogs">
+<div class="grid">
+<div class="panel">
+<h3>Authentication Logs</h3>
+<p class="muted">
+              Live FreeRADIUS authentication results from radpostauth.
+            </p>
+<button class="full" onclick="loadLogs()">Refresh logs</button>
+<button class="full" onclick="exportLogsCsv()" style="margin-top:10px;background:#2563eb">Export logs to CSV</button>
+<div style="margin-top:18px">
+<label>Filter username</label>
+<input id="logFilterUser" placeholder="testuser"/>
+</div>
+<div style="margin-top:18px">
+<label>Show only failed logins</label>
+<select id="logFilterFailed" onchange="loadLogs()">
+<option value="all">All</option>
+<option value="failed">Failed only</option>
+</select>
+</div>
+</div>
+<div class="panel">
+<h3>Recent Events</h3>
+<p class="muted">
+              Latest RADIUS authentication attempts.
+            </p>
+<button class="full" onclick="loadLogs()">Refresh</button>
+<div id="logsOutput" style="margin-top:20px">
+              Loading...
+            </div>
+</div>
+</div>
+</section>

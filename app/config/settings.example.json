@@ -1,0 +1,52 @@
+{
+  "company_name": "CHANGE_ME",
+  "support_email": "support@example.local",
+  "radius_server_ip": "CHANGE_ME",
+  "radius_server_dns": "CHANGE_ME",
+  "auth_port": 1812,
+  "accounting_port": 1813,
+  "server_public_url": "http://CHANGE_ME",
+  "frontend_path": "/var/www/radiusaurus",
+
+  "log_retention_days": 30,
+  "backup_retention_days": 30,
+
+  "default_user_group": "default",
+  "default_mac_group": "mac-auth",
+  "default_vlan": null,
+
+  "certificate_country": "BE",
+  "certificate_state": "Limburg",
+  "certificate_organization": "CHANGE_ME",
+  "certificate_ca_password": "CHANGE_ME",
+  "certificate_server_key_password": "CHANGE_ME",
+  "certificate_valid_days_default": 365,
+  "certificate_client_dir": "/opt/radiusaurus/certs/clients",
+  "certificate_export_dir": "/opt/radiusaurus/certs/exports",
+
+  "freeradius_service_name": "freeradius",
+  "freeradius_binary_path": "/usr/sbin/freeradius",
+  "freeradius_config_test_command": "sudo /usr/sbin/freeradius -XC",
+  "freeradius_reload_command": "sudo /bin/systemctl reload freeradius",
+  "freeradius_clients_conf": "/etc/freeradius/3.0/clients.conf",
+  "freeradius_eap_conf": "/etc/freeradius/3.0/mods-enabled/eap",
+  "freeradius_default_site": "/etc/freeradius/3.0/sites-enabled/default",
+  "freeradius_inner_tunnel": "/etc/freeradius/3.0/sites-enabled/inner-tunnel",
+  "freeradius_backup_dir": "/opt/radiusaurus/backups/generated-configs",
+  "freeradius_default_eap_type": "peap",
+
+  "freeradius_server_key": "/opt/radiusaurus/certs/server/server.key",
+  "freeradius_server_cert": "/opt/radiusaurus/certs/server/server.pem",
+  "freeradius_ca_cert": "/opt/radiusaurus/certs/ca/ca.pem",
+  "freeradius_dh_file": "/opt/radiusaurus/certs/dh",
+  "freeradius_tls_min_version": "1.2",
+  "freeradius_tls_max_version": "1.3",
+  "freeradius_sql_conf": "/etc/freeradius/3.0/mods-enabled/sql",
+  "freeradius_queries_conf": "/etc/freeradius/3.0/mods-config/sql/main/mysql/queries.conf",
+
+  "sql_server": "localhost",
+  "sql_port": 3306,
+  "sql_login": "radius",
+  "sql_password": "CHANGE_ME",
+  "sql_database": "radius"
+}

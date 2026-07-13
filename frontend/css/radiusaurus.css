@@ -1,0 +1,246 @@
+* { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #0f172a;
+      color: black;
+      min-height: 100vh;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .card, .panel, .topbar, .sidebar {
+      background: white;
+      color: #0f172a;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 480px;
+      height: 480px;
+      max-width: 100%;
+      margin: 0 auto;
+      position: relative;
+      overflow: visible;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      background: white;
+    }
+
+    th {
+      text-align: left;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 13px;
+      padding: 12px;
+    }
+
+    td {
+      padding: 12px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 14px;
+    }
+
+    .delete-btn {
+      background: #ef4444;
+      padding: 8px 12px;
+      border-radius: 10px;
+      width: auto;
+    }
+
+    .small-btn {
+      width: auto;
+      padding: 10px 14px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 8px;
+      font-size: 42px;
+    }
+
+    h2, h3 { margin-top: 0; }
+
+    .subtitle {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 28px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #cbd5e1;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: #111827;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover { opacity: .92; }
+
+    .error {
+      background: #fef2f2;
+      color: #b91c1c;
+      padding: 12px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .app {
+      display: none;
+      min-height: 100vh;
+      padding: 28px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+    }
+
+    .sidebar {
+      padding: 22px;
+      height: calc(100vh - 56px);
+      position: sticky;
+      top: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .nav button {
+      width: 100%;
+      margin-bottom: 10px;
+      text-align: left;
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .nav button.active {
+      background: #111827;
+      color: white;
+    }
+
+    .logout {
+      width: 100%;
+      margin-top: 20px;
+      background: #ef4444;
+    }
+
+    .topbar {
+      padding: 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .panel {
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    pre {
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 18px;
+      border-radius: 16px;
+      overflow: auto;
+      max-height: 500px;
+      white-space: pre-wrap;
+    }
+
+    .muted {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .full {
+      width: 100%;
+    }
+
+    @media (max-width: 850px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { height: auto; position: static; }
+      .grid { grid-template-columns: 1fr; }
+    }

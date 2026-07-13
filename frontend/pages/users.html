@@ -1,0 +1,33 @@
+<!-- Page template: users -->
+<section class="page active" id="pageUsers">
+<div class="grid">
+<div class="panel">
+<h3>Create user</h3>
+<label>Username</label>
+<input id="newUsername" placeholder="Username"/>
+<label>Password</label>
+<input id="newPassword" placeholder="Password" type="password"/>
+<label>Group</label>
+<select id="newGroup"></select>
+<button class="full" onclick="createUser()">Create user</button>
+<div id="editUserBox" style="display:none;margin-top:24px;padding-top:24px;border-top:1px solid #e2e8f0">
+<h3>Edit user</h3>
+<input id="editUsername" type="hidden"/>
+<label>Username</label>
+<input disabled="" id="editUsernameDisplay"/>
+<label>New password</label>
+<input id="editPassword" placeholder="Leave empty to keep current password" type="password"/>
+<label>Group</label>
+<select id="editGroup"></select>
+<button class="full" onclick="saveUserEdit()">Save changes</button>
+<button class="full" onclick="cancelUserEdit()" style="margin-top:10px;background:#64748b">Cancel</button>
+</div>
+</div>
+<div class="panel">
+<h3>Users</h3>
+<p class="muted">Reads from the FreeRADIUS SQL user tables.</p>
+<button class="full" onclick="loadUsers()">Refresh users</button>
+<div id="output">Loading...</div>
+</div>
+</div>
+</section>

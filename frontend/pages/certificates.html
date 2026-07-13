@@ -1,0 +1,32 @@
+<!-- Page template: certificates -->
+<section class="page active" id="pageCertificates">
+<div class="grid">
+<div class="panel">
+<h3>Create client certificate</h3>
+<label>Certificate name / Common Name</label>
+<input id="certCommonName" placeholder="test-client-01"/>
+<label>Linked user</label>
+<select id="certUsername"></select>
+<label>Linked MAC address</label>
+<select id="certMac"></select>
+<label>Device name</label>
+<input id="certDeviceName" placeholder="LT-Jos-01"/>
+<label>Description</label>
+<input id="certDescription" placeholder="Optional"/>
+<label>PFX export password</label>
+<input id="certExportPassword" placeholder="Temporary export password" type="password"/>
+<label>Valid days</label>
+<input id="certValidDays" type="number" value="365"/>
+<button class="full" onclick="createClientCertificate()">Create certificate</button>
+<button class="full" onclick="downloadCaCertificate()" style="margin-top:10px;background:#2563eb">
+              Download CA certificate
+            </button>
+<pre id="certStatus" style="margin-top:18px">Ready.</pre>
+</div>
+<div class="panel">
+<h3>Issued certificates</h3>
+<button class="full" onclick="loadCertificates()">Refresh certificates</button>
+<div id="certificatesOutput">Loading...</div>
+</div>
+</div>
+</section>

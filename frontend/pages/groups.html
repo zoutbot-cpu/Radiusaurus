@@ -1,0 +1,48 @@
+<!-- Page template: groups -->
+<section class="page active" id="pageGroups">
+<div class="grid">
+<div class="panel">
+<h3>Create group</h3>
+<label>Group name</label>
+<input id="groupName" placeholder="staff"/>
+<label>Type</label>
+<input id="groupType" placeholder="staff / guest / mac-auth / admin"/>
+<label>VLAN</label>
+<select id="groupVlan"></select>
+<label>Session timeout seconds</label>
+<input id="groupSessionTimeout" placeholder="28800" type="number"/>
+<label>Idle timeout seconds</label>
+<input id="groupIdleTimeout" placeholder="3600" type="number"/>
+<label>Aruba role</label>
+<input id="groupArubaRole" placeholder="employee"/>
+<label>Filter-Id</label>
+<input id="groupFilterId" placeholder="staff-acl"/>
+<button class="full" onclick="createGroup()">Create group</button>
+<div id="editGroupBox" style="display:none;margin-top:24px;padding:24px;border-radius:18px;background:#f8fafc">
+<h3>Edit group</h3>
+<input id="editGroupNameOriginal" type="hidden"/>
+<label>Group name</label>
+<input disabled="" id="editGroupNameDisplay"/>
+<label>Type</label>
+<input id="editGroupType"/>
+<label>VLAN</label>
+<select id="editGroupVlan"></select>
+<label>Session timeout seconds</label>
+<input id="editGroupSessionTimeout" placeholder="28800" type="number"/>
+<label>Idle timeout seconds</label>
+<input id="editGroupIdleTimeout" placeholder="3600" type="number"/>
+<label>Aruba role</label>
+<input id="editGroupArubaRole" placeholder="employee"/>
+<label>Filter-Id</label>
+<input id="editGroupFilterId" placeholder="staff-acl"/>
+<button class="full" onclick="saveGroupEdit()">Save changes</button>
+<button class="full" onclick="cancelGroupEdit()" style="margin-top:10px;background:#64748b">Cancel</button>
+</div>
+</div>
+<div class="panel">
+<h3>Groups</h3>
+<button class="full" onclick="loadGroups()">Refresh groups</button>
+<div id="groupsOutput">Loading...</div>
+</div>
+</div>
+</section>

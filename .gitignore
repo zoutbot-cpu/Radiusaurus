@@ -1,0 +1,8 @@
+app/.env
+app/venv/
+app/certs/
+app/backups/
+app/config/settings.json
+__pycache__/
+*.pyc
+radiusaurus-installer.tar.gz

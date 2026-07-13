@@ -1,0 +1,46 @@
+<!-- Page template: clients -->
+<section class="page active" id="pageClients">
+    <div class="grid">
+        <div class="panel">
+            <h3>Add RADIUS client</h3>
+            <label>Name / IP address</label>
+            <input id="clientNasname" placeholder="192.168.1.10"/>
+            <label>Short name</label>
+            <input id="clientShortname" placeholder="unifi-ap-01"/>
+            <label>Shared secret</label>
+            <input id="clientSecret" placeholder="StrongSharedSecret"/>
+            <label>Type</label>
+            <input id="clientType" placeholder="other / mikrotik / cisco" value="other"/>
+            <label>Description</label>
+            <input id="clientDescription" placeholder="Optional"/>
+            <button class="full" onclick="createClient()">Create client</button>
+            <div id="editClientBox" style="display:none;margin-top:24px;padding:24px;border-radius:18px;background:#f8fafc">
+                <h3>Edit RADIUS client</h3>
+                <input id="editClientId" type="hidden"/>
+                <label>Name / IP address</label>
+                <input id="editClientNasname"/>
+                <label>Short name</label>
+                <input id="editClientShortname"/>
+                <label>Shared secret</label>
+                <input id="editClientSecret"/>
+                <label>Type</label>
+                <input id="editClientType"/>
+                <label>Description</label>
+                <input id="editClientDescription"/>
+                <button class="full" onclick="saveClientEdit()">Save changes</button>
+                <button class="full" onclick="cancelClientEdit()" style="margin-top:10px;background:#64748b">Cancel</button>
+            </div>
+        </div>
+        <div class="panel">
+            <h3>RADIUS Clients</h3>
+            <p class="muted">Equivalent to NPS RADIUS Clients.</p>
+
+            <button class="full" onclick="loadClients()">Refresh clients</button>
+            <button class="full" onclick="toggleClientExamples(event)" style="margin-top:10px;background:#64748b">    Show Examples</button>
+            <div id="clientExamplesBox" style="display:none;margin-top:18px"></div>
+
+            <div id="clientsOutput">Loading...</div>
+        </div>
+        </div>
+    </div>
+</section>

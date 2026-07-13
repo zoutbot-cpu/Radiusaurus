@@ -1,0 +1,87 @@
+<!-- Page template: client-setup -->
+<section class="page active" id="pageClientSetup">
+<div class="panel">
+<h3>Client Setup</h3>
+<p class="muted">
+            Documentation for connecting RADIUS clients to FreeRADIUS / Radiusaurus.
+          </p>
+<div class="table-wrap">
+<table>
+<tbody>
+<tr>
+  <th>RADIUS Server IP</th>
+  <td id="setupRadiusIp">Loading...</td>
+</tr>
+<tr>
+  <th>RADIUS Server DNS Name</th>
+  <td id="setupRadiusDns">Loading...</td>
+</tr>
+<tr>
+  <th>Authentication Port</th>
+  <td id="setupAuthPort">Loading...</td>
+</tr>
+<tr>
+  <th>Accounting Port</th>
+  <td id="setupAccountingPort">Loading...</td>
+</tr>
+<tr>
+<th>Shared Secret</th>
+<td>Use the secret configured in Radiusaurus → RADIUS Clients</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="panel">
+<h3>UniFi / Ubiquiti WiFi</h3>
+<pre>
+      Settings → Profiles → RADIUS
+
+      RADIUS Server:
+        IP Address: 192.168.4.8
+        Port: 1812
+        Secret: &lt;shared-secret&gt;
+
+      Accounting:
+        IP Address: 192.168.4.8
+        Port: 1813
+        Secret: &lt;shared-secret&gt;
+
+      MAC Authentication:
+        Format: lowercase, no separators
+        Example: f67c8ebda773
+          </pre>
+</div>
+<div class="panel">
+<h3>ArubaOS-S Switch - HP/Aruba 2530</h3>
+<pre>
+        configure terminal
+          radius-server host 192.168.4.8 key "Secure Key"
+          aaa authentication port-access eap-radius
+          aaa port-access authenticator 7
+          aaa port-access authenticator 7 client-limit 5
+          aaa port-access authenticator active
+          aaa port-access mac-based 7
+          aaa port-access mac-based 7 addr-limit 5
+          aaa port-access mac-based 7 unauth-vid 666
+          aaa port-access mac-based addr-format no-delimiter
+        write memory
+          </pre>
+<p class="muted">
+            Use <strong>no-delimiter</strong> MAC format so MAC auth usernames match Radiusaurus.
+            Example: f67c8ebda773
+          </p>
+</div>
+<div class="panel">
+<h3>Testing</h3>
+<pre>
+      # On the Radiusaurus server
+      sudo freeradius -X
+
+      # Check recent SQL logs
+      SELECT * FROM radius_request_log
+      ORDER BY id DESC
+      LIMIT 20;
+          </pre>
+</div>
+</section>

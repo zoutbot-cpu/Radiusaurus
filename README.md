@@ -28,6 +28,19 @@
 ## Repository Structure
 
 ```text
+app/
+  main.py                    FastAPI backend
+  requirements.txt           Python dependencies
+  config/settings.example.json   Template settings (real settings.json is generated at install time)
+  templates/freeradius/*.j2  Jinja templates for generated FreeRADIUS config files
+
+frontend/
+  index.html, css/, js/, pages/, img/
+    The Radiusaurus web UI
+
+installer/
+  schema.sql              Database schema (no data, safe to version)
+
 docs/
   GitHub Pages website
 
@@ -35,17 +48,24 @@ docs/
   GitHub Pages deployment workflow
 
 scripts/
-  quick-install.sh       Interactive Ubuntu installer
-  build-release.sh       Builds a release archive
+  quick-install.sh       Interactive Ubuntu installer (the supported install path)
+  build-release.sh       Builds a release archive from app/, frontend/, installer/, and templates/
   verify-archive.sh      Checks archive contents
 
 templates/
-  nginx-radiusaurus.conf
-  radiusaurus.service
+  nginx-radiusaurus.conf.template
+  radiusaurus.service.template
+    Canonical nginx/systemd templates. build-release.sh renders these into the
+    release archive, so they're the single source of truth (quick-install.sh's
+    own inline fallback matches them too).
 
 README.md
   Project documentation
 ```
+
+Everything the app needs to run is committed here — `scripts/build-release.sh` builds
+the release archive entirely from this repo, so a fresh clone is all that's needed to
+produce a new release.
 
 ## Quick Install on Ubuntu LTS
 

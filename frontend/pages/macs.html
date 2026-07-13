@@ -1,0 +1,45 @@
+<!-- Page template: macs -->
+<section class="page active" id="pageMacs">
+<div class="grid">
+<div class="panel">
+<h3>Add MAC address</h3>
+<label>User</label>
+<select id="macUser"></select>
+<label>MAC address</label>
+<input id="macAddress" placeholder="AA:BB:CC:DD:EE:FF"/>
+<label>Device name</label>
+<input id="macDeviceName" placeholder="John's iPhone"/>
+<label>Description</label>
+<input id="macDescription" placeholder="Optional extra info"/>
+<label>Group</label>
+<input id="macGroup" placeholder="Group" value="mac-auth"/>
+<label>VLAN</label>
+<select id="macVlan"></select>
+<button class="full" onclick="addMacAddress()">Add MAC address</button>
+<div id="editMacBox" style="display:none;margin-top:24px;padding:24px;border-radius:18px;background:#f8fafc">
+<h3>Edit MAC address</h3>
+<input id="editMacOriginal" type="hidden"/>
+<label>MAC address</label>
+<input disabled="" id="editMacDisplay"/>
+<label>User</label>
+<select id="editMacUser"></select>
+<label>Device name</label>
+<input id="editMacDeviceName"/>
+<label>Description</label>
+<input id="editMacDescription"/>
+<label>Group</label>
+<input id="editMacGroup"/>
+<label>VLAN</label>
+<select id="editMacVlan"></select>
+<button class="full" onclick="saveMacEdit()">Save changes</button>
+<button class="full" onclick="cancelMacEdit()" style="margin-top:10px;background:#64748b">Cancel</button>
+</div>
+</div>
+<div class="panel">
+<h3>MAC addresses</h3>
+<p class="muted">Allowed MAC addresses stored in FreeRADIUS SQL.</p>
+<button class="full" onclick="loadMacAddresses()">Refresh MAC addresses</button>
+<div id="macOutput">No MACs loaded</div>
+</div>
+</div>
+</section>

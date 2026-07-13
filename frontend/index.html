@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Radiusaurus</title>
+  <link rel="stylesheet" href="css/radiusaurus.css">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="manifest" href="/img/site.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+</head>
+<body>
+  <!-- Login screen. Hidden after a valid JWT is stored in localStorage. -->
+  <div class="center" id="loginView">
+    <div class="card">
+      <div class="logo"><img src="radiusaurus-logo.png" alt="Radiusaurus logo"></div>
+      <div class="error" id="error"></div>
+      <form id="loginForm">
+        <label>Username</label>
+        <input id="username">
+        <label>Password</label>
+        <input id="password" type="password">
+        <button class="full" type="submit">Sign in</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main application shell. Individual pages are loaded from frontend/pages/*.html. -->
+  <div class="app" id="appView">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-icon"><img src="radiusaurus-logo.png" alt="Radiusaurus logo"></div>
+          <div><strong>Radiusaurus</strong><div class="muted">FreeRADIUS Admin</div></div>
+        </div>
+
+        <div class="nav">
+          <button id="navStatus" type="button" onclick="showPage('status')">  📊 Status</button>
+          <button id="navUsers" onclick="showPage('users')">👤 Users</button>
+          <button id="navMacs" onclick="showPage('macs')">📡 MAC addresses</button>
+          <button id="navCertificates" onclick="showPage('certificates')">🔐 Certificates</button>
+          <button id="navGroups" onclick="showPage('groups')">👥 Groups</button>
+          <button id="navVlans" onclick="showPage('vlans')">🔀 VLANs</button>
+          <button id="navClients" onclick="showPage('clients')">🖧 RADIUS Clients</button>
+          <button id="navPolicies" onclick="showPage('policies')">🛡️ Policies</button>
+          <button id="navLogs" onclick="showPage('logs')">📜 Logs</button>
+          <button id="navSettings" onclick="showPage('settings')">  ⚙️ Settings </button>
+        </div>
+
+        <button class="logout" onclick="logout()">Logout</button>
+      </aside>
+
+      <main>
+        <div class="topbar">
+          <div>
+            <h2 id="pageTitle" style="margin:0">Users</h2>
+            <div class="muted">Manage Radiusaurus records through the protected API</div>
+          </div>
+        </div>
+        <div id="appContent">
+          Loading...
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/radiusaurus.js"></script>
+</body>
+</html>

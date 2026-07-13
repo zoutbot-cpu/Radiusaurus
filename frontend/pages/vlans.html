@@ -1,0 +1,36 @@
+<!-- Page template: vlans -->
+<section class="page active" id="pageVlans">
+<div class="grid">
+<div class="panel">
+<h3>Create VLAN</h3>
+<label>Number</label>
+<input id="vlanNumber" placeholder="20" type="number"/>
+<label>Name</label>
+<input id="vlanName" placeholder="Staff WiFi"/>
+<label>Location</label>
+<input id="vlanLocation" placeholder="HQ / Site A / Floor 2"/>
+<label>Description</label>
+<input id="vlanDescription" placeholder="Optional description"/>
+<button class="full" onclick="createVlan()">Create VLAN</button>
+<div id="editVlanBox" style="display:none;margin-top:24px;padding:24px;border-radius:18px;background:#f8fafc">
+<h3>Edit VLAN</h3>
+<input id="editVlanNumberOriginal" type="hidden"/>
+<label>Number</label>
+<input disabled="" id="editVlanNumberDisplay"/>
+<label>Name</label>
+<input id="editVlanName"/>
+<label>Location</label>
+<input id="editVlanLocation"/>
+<label>Description</label>
+<input id="editVlanDescription"/>
+<button class="full" onclick="saveVlanEdit()">Save changes</button>
+<button class="full" onclick="cancelVlanEdit()" style="margin-top:10px;background:#64748b">Cancel</button>
+</div>
+</div>
+<div class="panel">
+<h3>VLANs</h3>
+<button class="full" onclick="loadVlans()">Refresh VLANs</button>
+<div id="vlansOutput">Loading...</div>
+</div>
+</div>
+</section>

@@ -1,0 +1,157 @@
+<div class="grid">
+
+  <div class="panel">
+    <h3>General Settings</h3>
+
+    <label>Company name</label>
+    <input id="settingsCompanyName">
+
+    <label>Support email</label>
+    <input id="settingsSupportEmail">
+
+    <label>RADIUS Server IP</label>
+    <input id="settingsRadiusIp">
+
+    <label>RADIUS DNS Name</label>
+    <input id="settingsRadiusDns">
+
+    <label>Authentication Port</label>
+    <input id="settingsAuthPort" type="number">
+
+    <label>Accounting Port</label>
+    <input id="settingsAccountingPort" type="number">
+    <br /><br />
+    <h3>System / Installer Settings</h3>
+
+    <label>Public URL</label>
+    <input id="settingsPublicUrl">
+
+    <label>Frontend path</label>
+    <input id="settingsFrontendPath">
+    <br /><br />
+    <h3>Freeradius Settings</h3>
+    <label>FreeRADIUS clients.conf path</label>
+    <input id="settingsClientsConf">
+
+    <label>FreeRADIUS EAP config path</label>
+    <input id="settingsEapConf">
+
+    <label>FreeRADIUS default site path</label>
+    <input id="settingsDefaultSite">
+
+    <label>FreeRADIUS inner-tunnel path</label>
+    <input id="settingsInnerTunnel">
+
+    <label>FreeRADIUS backup directory</label>
+    <input id="settingsBackupDir">
+
+    <label>FreeRADIUS service name</label>
+    <input id="settingsFreeradiusService">
+
+    <label>FreeRADIUS binary path</label>
+    <input id="settingsFreeradiusBinary">
+    <br /><br />
+    <label>Default user group</label>
+    <input id="settingsDefaultUserGroup">
+
+    <label>Default MAC group</label>
+    <input id="settingsDefaultMacGroup">
+
+    <label>Log retention days</label>
+    <input id="settingsLogRetentionDays" type="number">
+
+    <label>Backup retention days</label>
+    <input id="settingsBackupRetentionDays" type="number">
+
+    <label>Default EAP type</label>
+    <select id="settingsDefaultEapType">
+    <option value="peap">PEAP</option>
+    <option value="ttls">TTLS</option>
+    <option value="tls">TLS</option>
+    </select>
+
+    <button class="full" onclick="saveSettings()">
+      Save Settings
+    </button>
+
+    <pre id="settingsStatus" style="margin-top:20px">Ready.</pre>
+  </div>
+  
+  <div class="panel">
+    <h3>Advanced Config File Editor</h3>
+
+    <p class="muted">
+      Emergency/manual editor for whitelisted FreeRADIUS files.
+      Normal deployments should use the generated configs made below!.
+    </p>
+
+    <div id="configFilesList">Loading...</div>
+
+    <h4 id="configFileTitle" style="margin-top:20px">Select a file</h4>
+
+    <textarea
+      id="configFileEditor"
+      style="width:100%;min-height:520px;padding:18px;border-radius:16px;border:1px solid #cbd5e1;font-family:monospace;font-size:13px;"
+    ></textarea>
+
+    <button class="full" onclick="saveConfigFile()" style="margin-top:14px;background:#2563eb">
+      Save selected file
+    </button>
+
+    <button class="full" onclick="testFreeradiusConfig()" style="margin-top:10px;background:#0f766e">
+      Test FreeRADIUS config
+    </button>
+
+    <button class="full" onclick="reloadFreeradius()" style="margin-top:10px;background:#ea580c">
+      Reload FreeRADIUS
+    </button>
+
+    <pre id="configFileStatus" style="margin-top:18px">No file selected.</pre>
+  </div>
+
+  <div class="panel">
+    <h3>Certificate Settings</h3>
+
+    <label>Certificate Country</label>
+    <input id="settingsCertCountry">
+
+    <label>Certificate State</label>
+    <input id="settingsCertState">
+
+    <label>Certificate Organization</label>
+    <input id="settingsCertOrg">
+
+    <label>CA Password</label>
+    <input id="settingsCaPassword" type="password">
+
+    <label>Default certificate validity days</label>
+    <input id="settingsCertificateValidDays" type="number">
+
+  </div>
+
+  <div class="panel">
+    <h3>FreeRADIUS Generated Configs</h3>
+
+    <p class="muted">
+        Generate FreeRADIUS config files from Radiusaurus database/settings.
+        Backups are created first.
+    </p>
+
+    <button class="full" onclick="generateClientsConf()">        Generate clients.conf    </button>
+    <button class="full" onclick="generateEapConfig()" style="margin-top:10px">        Generate EAP config    </button>
+    <button class="full" onclick="generateDefaultSiteConfig()" style="margin-top:10px">        Generate default site    </button>
+    <button class="full" onclick="generateInnerTunnelConfig()" style="margin-top:10px">        Generate inner-tunnel    </button>
+    <button class="full" onclick="generateSqlConfig()" style="margin-top:10px">  Generate SQL config</button>
+    <button class="full" onclick="generateRadiusRequestLogConfig()" style="margin-top:10px">Generate radius_request_log config</button>
+    <button class="full" onclick="generateQueriesConf()" style="margin-top:10px">  Generate queries.conf   </button>
+    <button class="full" onclick="generateAllFreeradiusConfigs()" style="margin-top:10px;background:#7c3aed">        Generate all managed configs    </button>
+
+    <br/><br/><br/><br/>
+
+    <button class="full" onclick="testFreeradiusConfig()" style="margin-top:10px;background:#0f766e">        Test FreeRADIUS config    </button>
+    
+    <button class="full" onclick="reloadFreeradius()" style="margin-top:10px;background:#ea580c">        Reload FreeRADIUS    </button>
+    <!--<button class="full" onclick="deployFreeradiusConfigs()" style="margin-top:10px;background:#15803d">    Generate, test and reload FreeRADIUS    </button> -->
+    <pre id="generatedConfigStatus" style="margin-top:18px">Ready.</pre>
+  </div>
+</div> 

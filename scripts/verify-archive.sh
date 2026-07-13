@@ -17,7 +17,6 @@ required=(
   "templates/freeradius/sql.j2"
   "templates/freeradius/queries.conf.j2"
   "templates/freeradius/radius_request_log.j2"
-  "installer/install.sh"
   "installer/schema.sql"
   "installer/frontend/index.html"
   "installer/frontend/js/radiusaurus.js"
