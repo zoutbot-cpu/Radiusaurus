@@ -305,6 +305,7 @@ server {
 }
 EOF_NGINX
 
+  rm -f /etc/nginx/sites-enabled/default
   ln -sf /etc/nginx/sites-available/radiusaurus /etc/nginx/sites-enabled/radiusaurus
   nginx -t
 }
@@ -365,7 +366,8 @@ start_services() {
   systemctl daemon-reload
   systemctl enable radiusaurus nginx freeradius
   systemctl restart radiusaurus
-  systemctl reload nginx
+  systemctl restart nginx
+  systemctl restart freeradius
 }
 
 final_status() {
